@@ -1,4 +1,4 @@
-name: highspecwindows tailscale
+name: Custom Windows VNC
 
 on: 
   workflow_dispatch:
@@ -7,13 +7,13 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      - name: chuẩn bị phần mềm
+      - name: Getting Updates and Installing Tailscale, Git.
         run: |
           sudo apt update -y
           sudo apt install git -y
           curl -fsSL https://tailscale.com/install.sh | sh
           sudo tailscale up
-      - name: cài win và khởi chạy
+      - name: Copying Docker Container Files and Setting Everything Up.
         run: |
           git clone https://github.com/dockur/windows.git .
           docker build -t dockerd .
