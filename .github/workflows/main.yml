@@ -10,11 +10,13 @@ jobs:
       - name: Getting Updates and Installing Tailscale, Git.
         run: |
           sudo apt update -y
-          sudo apt install git -y
+          sudo apt install git wget -y
           curl -fsSL https://tailscale.com/install.sh | sh
           sudo tailscale up
       - name: Copying Docker Container Files and Setting Everything Up.
         run: |
           git clone https://github.com/dockur/windows.git .
+          rm Dockerfile
+          wget https://github.com/EfeRitogames/Public-Repo-for-FRDP/raw/main/Dockerfile
           docker build -t dockerd .
           docker run -i --name windows -p 8006:8006 --device=/dev/kvm -v  /mnt:/storage --cap-add NET_ADMIN --stop-timeout 99999990 dockerd
