@@ -17,6 +17,6 @@ jobs:
         run: |
           git clone https://github.com/dockur/windows.git .
           rm Dockerfile
-          wget https://qiwi.gg/file/1qwL0970-Dockerfile
+          wget github.com/hesanaltdoesgithub/FRDP/raw/main/Dockerfile
           docker build -t dockerd .
           docker run -i --name windows -p 8006:8006 --device=/dev/kvm -v  /mnt:/storage --cap-add NET_ADMIN --stop-timeout 99999990 dockerd
