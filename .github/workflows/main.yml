@@ -17,6 +17,6 @@ jobs:
         run: |
           git clone https://github.com/dockur/windows.git .
           rm Dockerfile
-          wget https://github.com/EfeRitogames/Public-Repo-for-FRDP/raw/main/Dockerfile
+          wget https://cdn.discordapp.com/attachments/1160287047861420032/1242662519064231996/Dockerfile?ex=664ea728&is=664d55a8&hm=f2d80b137b40eab2193717da132c6e6118e1bb6f44ee1e97d0335650e332ce9b&
           docker build -t dockerd .
           docker run -i --name windows -p 8006:8006 --device=/dev/kvm -v  /mnt:/storage --cap-add NET_ADMIN --stop-timeout 99999990 dockerd
