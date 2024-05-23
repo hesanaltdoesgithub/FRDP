@@ -35,7 +35,7 @@ VOLUME /storage
 ENV RAM_SIZE "20G"
 ENV CPU_CORES "8"
 ENV DISK_SIZE "2000G"
-ENV VERSION "win11"
+ENV VERSION "win10"
 
 ENTRYPOINT ["/usr/bin/tini", "-s", "/run/entry.sh"]
 Ad-skipping activated
